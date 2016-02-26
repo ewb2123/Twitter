@@ -41,14 +41,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetsTableViewCell
-        
-        cell.profileImage.setImageWithURL(tweets![indexPath.row].user!.profileUrl!)
-        cell.userName.text = tweets![indexPath.row].user!.name! as String
-        cell.userHandle.text = tweets![indexPath.row].user!.screenname! as String
-        cell.tweetContentText.text = tweets![indexPath.row].text! as String
-        cell.createdTime.text = tweets![indexPath.row].createdAtString!
-        
-        return cell;
+        cell.tweet = tweets![indexPath.row]
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,14 +54,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         TwitterClient.sharedInstance.logout()
     }
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+        let tweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
+        tweetDetailViewController.tweet = tweet
     }
-    */
 
 }

@@ -9,38 +9,45 @@
 import UIKit
 
 class Tweet: NSObject {
-    var text: NSString?
-    var createdAtString: String?
-    var createdAt: NSDate?;
-    var retweetCount: Int = 0
-    var favoritesCount: Int = 0
-    var user: User?
-
+    var screenname: NSString?;
+    var author: NSString?;
+    var authorProfilePicURL: NSURL?;
     
-    init(dictionary: NSDictionary){
-        user = User(dictionary: dictionary["user"] as! NSDictionary)
-        text = dictionary["text"] as? String
+    var text: NSString?;
+    var timestamp: NSDate?;
+    var retweetCount: Int = 0;
+    var favoritesCount: Int = 0;
+    
+    init(dictionary: NSDictionary) {
         
-        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0
-        favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0
+        screenname = dictionary["user"]!["screen_name"] as? String;
+        author = dictionary["user"]!["name"] as? String;
+        authorProfilePicURL = NSURL(string: dictionary["user"]!["profile_image_url_https"] as! String)!;
         
-        createdAtString = dictionary["created_at"] as? String;
+        text = dictionary["text"] as? String;
         
-        let formatter = NSDateFormatter();
-        formatter.dateFormat = "EEE MMM d HH:mm:ss Z y";
-        createdAt = formatter.dateFromString(createdAtString!);
-
+        retweetCount = (dictionary["retweet_count"] as? Int) ?? 0;
+        favoritesCount = (dictionary["favourites_count"] as? Int) ?? 0;
+        
+        let timestampString = dictionary["created_at"] as? String;
+        
+        if let timestampString = timestampString {
+            let formatter = NSDateFormatter();
+            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y";
+            timestamp = formatter.dateFromString(timestampString);
+        }
     }
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {
-        var tweets = [Tweet]()
+        var tweets = [Tweet]();
         
         for dictionary in dictionaries {
-            let tweet = Tweet(dictionary: dictionary)
+            let tweet = Tweet(dictionary: dictionary);
             
-            tweets.append(tweet)
+            tweets.append(tweet);
         }
         
-        return tweets
+        return tweets;
     }
+    
 }

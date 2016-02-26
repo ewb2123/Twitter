@@ -16,6 +16,22 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var userHandle: UILabel!
     @IBOutlet weak var userName: UILabel!
     
+    var tweet: Tweet! {
+        didSet {
+            print("prof pic:")
+            print(tweet.authorProfilePicURL);
+            profileImage.setImageWithURL(tweet.authorProfilePicURL!)
+            profileImage.layer.cornerRadius = 4
+            userName.text = tweet.author as? String
+            userHandle.text = "@" + (tweet.screenname as! String)
+            createdTime.text = String(tweet.timestamp!)
+            
+            tweetContentText.text = tweet.text as? String
+            
+        }
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
