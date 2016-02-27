@@ -10,7 +10,7 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
-    var tweet: Tweet!
+    var tweet: Tweet?
     
     @IBOutlet weak var composeTextBox: UITextView!
 
@@ -20,8 +20,9 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.composeTextBox.text = "@" + String(tweet.author!) + " "
-        
+        if tweet != nil {
+            self.composeTextBox.text = "@" + String(tweet!.author!) + " "
+        }
         
     }
 
@@ -31,11 +32,11 @@ class ComposeViewController: UIViewController {
     }
     
     @IBAction func replyButton(sender: AnyObject) {
-        TwitterClient.sharedInstance.reply(tweet.tweetID!, replyText: self.composeTextBox.text, success: { (Tweet) -> () in
-            print("sent reply")
+        TwitterClient.sharedInstance.compose(self.composeTextBox.text, success: { (Tweet) -> () in
             }) { (error: NSError) -> () in
                 print(error.localizedDescription)
         }
+        self.navigationController!.popViewControllerAnimated(true)
     }
 
     /*

@@ -91,9 +91,9 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-    func reply(id: String, replyText: String, success: (Tweet) -> (), failure: (NSError) -> ()) {
-        POST("1.1/statuses/update.json?status=\(replyText)&in_reply_to_status_id=\(id)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
-            print("replied")
+    func compose(composeText: String, success: (Tweet) -> (), failure: (NSError) -> ()) {
+        POST("1.1/statuses/update.json", parameters: ["status": composeText], progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("sent tweet")
             }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
                 failure(error)
         })

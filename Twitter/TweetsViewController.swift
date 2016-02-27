@@ -57,11 +57,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let tweet = tweets![indexPath!.row]
-        let tweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
-        tweetDetailViewController.tweet = tweet
+        
+        if (segue.identifier == "tweetClick") {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+            let tweetDetailViewController = segue.destinationViewController as! TweetDetailViewController
+            tweetDetailViewController.tweet = tweet
+        }
     }
 
 }

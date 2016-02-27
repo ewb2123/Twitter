@@ -115,7 +115,7 @@
                                             <outlet property="tweetContentText" destination="caG-bg-fJd" id="J4R-GP-6Js"/>
                                             <outlet property="userHandle" destination="V7K-7S-rLL" id="m1h-fS-Lc4"/>
                                             <outlet property="userName" destination="fAj-sC-JUz" id="edl-08-adt"/>
-                                            <segue destination="1H2-13-IzG" kind="push" id="RuQ-yc-46t"/>
+                                            <segue destination="1H2-13-IzG" kind="push" identifier="tweetClick" id="RuQ-yc-46t"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -127,6 +127,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="jZO-v2-wl9">
                             <connections>
                                 <action selector="onLogoutButton:" destination="j2D-YC-FKI" id="NpU-hF-ypN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Compose" id="Qb2-hO-E7M">
+                            <connections>
+                                <segue destination="9em-V9-rfS" kind="push" identifier="compose" id="Dd7-le-2Nf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -303,7 +308,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XdV-A4-OWc">
-                        <barButtonItem key="rightBarButtonItem" title="Reply" id="bsg-8M-qiF">
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="bsg-8M-qiF">
                             <connections>
                                 <action selector="replyButton:" destination="9em-V9-rfS" id="fg7-gC-wk7"/>
                             </connections>
@@ -315,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODK-Qk-Bfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="293"/>
+            <point key="canvasLocation" x="2012" y="-263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PvU-wR-9LC">
@@ -337,4 +342,7 @@
             <point key="canvasLocation" x="613" y="333"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dd7-le-2Nf"/>
+    </inferredMetricsTieBreakers>
 </document>
