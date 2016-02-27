@@ -42,24 +42,30 @@ class TweetDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func replyButton(sender: AnyObject) {
-    }
     
     @IBAction func retweetButton(sender: AnyObject) {
+        TwitterClient.sharedInstance.retweet(tweet.tweetID!, success: { (Tweet) -> () in
+            print("retweeted")
+            self.retweetsLabel.text = String(self.tweet.retweetCount + 1)
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
     }
 
     @IBAction func favoriteButton(sender: AnyObject) {
+        TwitterClient.sharedInstance.favorite(tweet.tweetID!, success: { (Tweet) -> () in
+            print("favorited")
+            self.favoritesLabel.text = String(self.tweet.favoritesCount + 1)
+            }) { (error: NSError) -> () in
+                print(error.localizedDescription)
+        }
     }
     
 
-    /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let composeViewController = segue.destinationViewController as! ComposeViewController
+        composeViewController.tweet = self.tweet
     }
-    */
-
 }

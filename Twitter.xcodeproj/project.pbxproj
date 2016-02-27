@@ -19,6 +19,7 @@
 		FD776CC01C73BA48004A315C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD776CBE1C73BA48004A315C /* Main.storyboard */; };
 		FD776CC21C73BA48004A315C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD776CC11C73BA48004A315C /* Assets.xcassets */; };
 		FD776CC51C73BA48004A315C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD776CC31C73BA48004A315C /* LaunchScreen.storyboard */; };
+		FD7902981C810FC100343C0F /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7902971C810FC100343C0F /* ComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FD776CC11C73BA48004A315C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD776CC41C73BA48004A315C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD776CC61C73BA48004A315C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD7902971C810FC100343C0F /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		FD25BEE01C7A7F3A0094DA87 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FD7902971C810FC100343C0F /* ComposeViewController.swift */,
 				FD25BEDD1C7A491C0094DA87 /* LoginViewController.swift */,
 				FD25BEE51C7A9AF30094DA87 /* TweetsViewController.swift */,
 				FD59E4781C7D38D500B1A5CD /* TweetDetailViewController.swift */,
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD25BEDE1C7A491C0094DA87 /* LoginViewController.swift in Sources */,
+				FD7902981C810FC100343C0F /* ComposeViewController.swift in Sources */,
 				FD25BEE91C7AB0D40094DA87 /* TweetsTableViewCell.swift in Sources */,
 				FD186B7D1C7401F3001DCC10 /* TwitterClient.swift in Sources */,
 				FD25BEE41C7A7FA80094DA87 /* Tweet.swift in Sources */,

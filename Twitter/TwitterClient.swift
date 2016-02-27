@@ -75,6 +75,31 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func retweet(id: String, success: (Tweet) -> (), failure: (NSError) -> ()) {
+        POST("1.1/statuses/retweet/\(id).json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("retweeted")
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
+        })
+    }
+    
+    func favorite(id: String, success: (Tweet) -> (), failure: (NSError) -> ()) {
+        POST("1.1/favorites/create.json?id=\(id)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("favorited")
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
+        })
+    }
+    
+    func reply(id: String, replyText: String, success: (Tweet) -> (), failure: (NSError) -> ()) {
+        POST("1.1/statuses/update.json?status=\(replyText)&in_reply_to_status_id=\(id)", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("replied")
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
+        })
+    }
+    
+
     func currentAccount(success: (User) -> (), failure: (NSError) -> ()) {
         GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: {
             (task: NSURLSessionDataTask, response: AnyObject?) -> Void in

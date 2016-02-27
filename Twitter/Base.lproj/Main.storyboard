@@ -177,20 +177,20 @@
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QRm-Eh-Iyf">
                                 <rect key="frame" x="8" y="307" width="305" height="3"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bsT-5h-nNV">
                                 <rect key="frame" x="8" y="358" width="305" height="3"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zvw-hb-hMT">
                                 <rect key="frame" x="8" y="407" width="305" height="3"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1379" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kkd-wm-K6V">
                                 <rect key="frame" x="12" y="323" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="RETWEETS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZcR-Gf-jkP">
@@ -202,7 +202,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="432" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r05-5b-TQD">
                                 <rect key="frame" x="157" y="323" width="38" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="FAVORITES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvB-xa-SfH">
@@ -215,7 +215,7 @@
                                 <rect key="frame" x="24" y="369" width="39" height="30"/>
                                 <state key="normal" title="Reply"/>
                                 <connections>
-                                    <action selector="replyButton:" destination="1H2-13-IzG" eventType="touchUpInside" id="oJE-xk-Eyx"/>
+                                    <segue destination="9em-V9-rfS" kind="push" id="AOt-vh-Xbd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxA-kb-ZcH">
@@ -279,7 +279,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Scu-iK-3Zr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="332"/>
+            <point key="canvasLocation" x="1500" y="294"/>
+        </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="QpS-w2-oGb">
+            <objects>
+                <viewController id="9em-V9-rfS" customClass="ComposeViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="peQ-9o-hoe"/>
+                        <viewControllerLayoutGuide type="bottom" id="s83-RH-4bj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e3k-cF-39w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Amj-ld-Tj5">
+                                <rect key="frame" x="13" y="84" width="287" height="195"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XdV-A4-OWc">
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="bsg-8M-qiF">
+                            <connections>
+                                <action selector="replyButton:" destination="9em-V9-rfS" id="fg7-gC-wk7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="composeTextBox" destination="Amj-ld-Tj5" id="5T2-qx-8hi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODK-Qk-Bfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1994" y="293"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PvU-wR-9LC">
