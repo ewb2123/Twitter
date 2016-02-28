@@ -62,7 +62,7 @@ limitations under the License.
 
 # Project 5 - Twitter
 
-Time spent: **X** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
