@@ -16,6 +16,7 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var userHandle: UILabel!
     @IBOutlet weak var userName: UILabel!
     
+    
     var tweet: Tweet! {
         didSet {
             print("prof pic:")

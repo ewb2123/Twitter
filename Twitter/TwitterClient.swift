@@ -63,6 +63,17 @@ class TwitterClient: BDBOAuth1SessionManager {
         
     }
     
+    func getUser(screenName: String, success: (NSDictionary) -> (), failure: (NSError) -> ()) {
+        GET("1.1/users/show.json", parameters: "screen_name:", progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            print("got user")
+            print(screenName)
+            }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                failure(error)
+        })
+
+        
+    }
+    
     func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
         
         GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
